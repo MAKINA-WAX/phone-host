@@ -31,12 +31,32 @@
 | **温控调度** | 温度 ≥60℃ 降优先级，≥72℃ 暂停桌面保护手机 |
 | **手柄直通** | `--gamepad=uhid` 把电脑手柄当物理手柄 |
 
-## 快速开始
+## 两种安装方式
 
-```bat
-1. 双击 启动.bat          ;; 控制台（会自动拉起守护和托盘）
-2. 点 ② 开画布            ;; 建虚拟屏
-3. 点 ③ 开 Linux          ;; 起桌面
+### 方式一：一键安装包（推荐，不用命令行）
+
+直接下这个，**已经打包好 scrcpy 和 5 个 APK**：
+
+**[⬇ PhoneHost-v1.0.0-installer.zip](https://github.com/MAKINA-WAX/phone-host/releases/latest)** · 65 MB
+
+```
+解压 → 双击「安装.bat」→ 选安装目录 → 数据线连手机 → 点「开始安装」
+```
+
+安装器会做：
+- 复制电脑端脚本 + scrcpy 到**你选的目录**（默认 `C:\PhoneHost`，可改）
+- 通过数据线给手机装 5 个 APK（手机上逐个点「继续安装」）
+- 创建桌面快捷方式、注册计划任务
+- 附带图形**卸载器**（程序文件 / 快捷方式 / 计划任务 / 手机 APK 一键卸）
+
+### 方式二：从源码跑
+
+```powershell
+git clone https://github.com/MAKINA-WAX/phone-host.git
+cd phone-host
+powershell -ExecutionPolicy Bypass -File assets\download-assets.ps1   # 拉 scrcpy + APK
+cd pc-mode
+.\启动.bat        # 控制台：② 开画布 → ③ 开 Linux
 ```
 
 详细步骤见 [docs/安装与使用.md](docs/安装与使用.md)。
@@ -67,7 +87,10 @@ assets/                  资源下载脚本（scrcpy / APK 不入库）
 
 ## 需要自己下载的东西
 
-仓库**不包含**二进制文件（scrcpy、APK），用脚本下载：
+仓库**不包含**二进制文件（scrcpy、APK），两种方式拿：
+
+- **想省事**：直接下 [Release 里的安装包](https://github.com/MAKINA-WAX/phone-host/releases/latest)，里面都有
+- **从源码跑**：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File assets\download-assets.ps1
