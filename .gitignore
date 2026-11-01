@@ -1,0 +1,25 @@
+# 二进制 / 资源（用 assets/download-assets.ps1 下载）
+*.apk
+scrcpy-win64-*/
+PortableGit*/
+
+# 截图与调试
+*.png
+*.jpg
+debug/
+screenshots/
+
+# 运行时文件
+tmp/
+*.log
+launcher.json
+last-mode.txt
+paused.flag
+brightness.bak
+reconnect.log
+*.lnk
+
+# 系统
+Thumbs.db
+desktop.ini
+.DS_Store
