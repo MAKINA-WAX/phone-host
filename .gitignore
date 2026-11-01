@@ -1,16 +1,13 @@
-# 二进制 / 资源（用 assets/download-assets.ps1 下载）
-*.apk
+# 浜岃繘鍒?/ 璧勬簮锛堢敤 assets/download-assets.ps1 涓嬭浇锛?*.apk
 scrcpy-win64-*/
 PortableGit*/
 
-# 截图与调试
-*.png
+# 鎴浘涓庤皟璇?*.png
 *.jpg
 debug/
 screenshots/
 
-# 运行时文件
-tmp/
+# 杩愯鏃舵枃浠?tmp/
 *.log
 launcher.json
 last-mode.txt
@@ -19,7 +16,11 @@ brightness.bak
 reconnect.log
 *.lnk
 
-# 系统
+# 绯荤粺
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# 文档截图需要入库
+!docs/images/*.png
+!docs/images/*.jpg
