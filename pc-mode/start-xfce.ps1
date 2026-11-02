@@ -29,7 +29,7 @@ function Get-TargetVd {
     return (($valid | Sort-Object | Select-Object -Last 1))
 }
 $kill = @'
-run-as com.termux sh -c 'killall -9 termux-x11 xfce4-session xfwm4 xfdesktop xfce4-panel xfce4-power-manager xfce4-notifyd 2>/dev/null; echo stopped'
+run-as com.termux sh -c 'for p in xfce4-session xfwm4 xfdesktop xfce4-panel xfce4-power-manager xfce4-notifyd lxqt-panel lxqt-notificationd lxqt-powermanagement pcmanfm-qt openbox termux-x11; do pkill -9 -f \pc-mode\start-xfce.ps1 2>/dev/null; done; sleep 2; echo stopped'
 '@
 
 if ($Stop) {

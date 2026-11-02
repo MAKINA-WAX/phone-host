@@ -48,6 +48,12 @@ desktop_on() {
 
 start_host() {
   termux-wake-lock 2>/dev/null
+  # 单实例保护：已经在跑就不重复起（避免出现两个桌面）
+  if pgrep -f 'lxqt-panel|xfce4-session' >/dev/null 2>&1; then
+    log "HOST mode: desktop already running, skip start"
+    return
+  fi
+  # 起之前把另一套桌面残留清掉（start-lxqt.sh / start-xfce.sh 里也会清）
   local kind=$(desktop_kind)
   if [ "$kind" = "xfce" ]; then
     if ! pgrep -f 'termux-x11' >/dev/null 2>&1; then

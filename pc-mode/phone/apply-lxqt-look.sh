@@ -15,14 +15,14 @@ printf '%s\n' \
 '__userfile__=true' \
 'icon_theme=Adwaita' \
 'style=Fusion' \
-'font=Noto Sans,11' \
+'font=Noto Sans,13' \
 'theme=light' > "$HOME/.config/lxqt/lxqt.conf"
 
 # 2) 面板：浅色主题 + 44 高 + 图标 32 + 满宽底部 + 背景半透明
 if grep -q '^\[panel1\]' "$HOME/.config/lxqt/panel.conf"; then
-  sed -i 's/^panelSize=.*/panelSize=44/; s/^iconSize=.*/iconSize=32/' "$HOME/.config/lxqt/panel.conf"
+  sed -i 's/^panelSize=.*/panelSize=52/; s/^iconSize=.*/iconSize=40/' "$HOME/.config/lxqt/panel.conf"
 else
-  printf '\n[panel1]\nalignment=-1\niconSize=32\nlineCount=1\nlockPanel=false\npanelSize=44\nposition=Bottom\nlength=100\nlength-percent=true\n' >> "$HOME/.config/lxqt/panel.conf"
+  printf '\n[panel1]\nalignment=-1\niconSize=40\nlineCount=1\nlockPanel=false\npanelSize=52\nposition=Bottom\nlength=100\nlength-percent=true\n' >> "$HOME/.config/lxqt/panel.conf"
 fi
 grep -q '^theme=' "$HOME/.config/lxqt/panel.conf" || printf '\ntheme=light\n' >> "$HOME/.config/lxqt/panel.conf"
 

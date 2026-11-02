@@ -1,13 +1,16 @@
-# 浜岃繘鍒?/ 璧勬簮锛堢敤 assets/download-assets.ps1 涓嬭浇锛?*.apk
+# binaries / assets (downloaded by assets/download-assets.ps1)
+*.apk
 scrcpy-win64-*/
 PortableGit*/
 
-# 鎴浘涓庤皟璇?*.png
+# screenshots & debug output
+*.png
 *.jpg
 debug/
 screenshots/
 
-# 杩愯鏃舵枃浠?tmp/
+# runtime files
+tmp/
 *.log
 launcher.json
 last-mode.txt
@@ -16,11 +19,11 @@ brightness.bak
 reconnect.log
 *.lnk
 
-# 绯荤粺
+# OS
 Thumbs.db
 desktop.ini
 .DS_Store
 
-# 文档截图需要入库
+# docs screenshots are allowed
 !docs/images/*.png
 !docs/images/*.jpg

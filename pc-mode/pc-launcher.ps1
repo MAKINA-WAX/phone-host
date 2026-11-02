@@ -412,7 +412,7 @@ $items = @(
     @{ t = "④ 切回桌面";    tip = "不重启，只切回已运行的桌面";              a = { $cfg.mode = "desktop"; Save-Cfg; RunScript "start-xfce.ps1" @("-Attach") } },
     @{ t = "⑤ 切安卓App"; tip = "全屏打开下方填写的包名";                 a = { $p = $txtApp.Text.Trim(); if ($p) { RunScript "open-app.ps1" @($p) } else { Log "先填包名" } } },
     @{ t = "⑥ 手机镜像";  tip = "直接镜像手机本机屏，不开虚拟屏";         a = { $cfg.mode = "mirror"; Save-Cfg; RunScript "mirror-phone.ps1" @("-BitRate", "$($cfg.bitrate)", "-Fps", "$($cfg.fps)") } },
-    @{ t = "⑦ 补齐环境"; tip = "装 APK / XFCE / 偏好 / 加固";            a = { RunScript "provision.ps1" } },
+    @{ t = "⑦ 装手机端"; tip = "装 APK + Termux 环境 + 脚本 + 自适应"; a = { Start-Process powershell -ArgumentList "-NoProfile","-ExecutionPolicy","Bypass","-File",(Join-Path $PSScriptRoot "provision-phone.ps1") } },
     @{ t = "⑧ 加固后台";    tip = "appops + 活跃桶 + Doze 白名单";            a = { RunScript "harden.ps1" } },
     @{ t = "⑨ 收工清理";  tip = "关窗口 + 杀 server + 清虚拟屏";           a = { $cfg.mode = "off"; Save-Cfg; RunScript "stop-pc.bat" } },
     @{ t = "⑩ 防烧屏";    tip = "把手机面板真正熄掉（虚拟屏内容不受影响）";  a = { RunScript "anti-burn.ps1" @("-On") } },
